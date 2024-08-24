@@ -13,7 +13,7 @@ app.use(express.json())
 app.use("/app/v1/users",userRouter)
 
 app.use("/",(req,res)=>{
-    res.send('Hello World')
+    res.send('Hello World!')
 })
 
 app.listen(PORT,()=>{

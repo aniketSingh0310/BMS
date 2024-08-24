@@ -1,16 +1,32 @@
 import React from 'react'
-import { Checkbox, Form, Input } from "antd";
+import { Checkbox, Form, Input,message } from "antd";
 import Button from "../../Components/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { LoginUser } from '../../ApiCalls/user';
 
-const onFinish = (values) => {
-  console.log("Success:", values);
-};
 const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
 const Login = () => {
+  const navigate = useNavigate();  // Initialize useNavigate
+
+  const onFinish = async(values) => {
+    try {
+      const response = await LoginUser(values);
+      console.log(response);
+      if (response.success) {
+        message.success(response.message);
+        localStorage.setItem('tokenForBms',response.data)
+        navigate("/");
+      }else {
+        message.error(response.message || "Invalid Credentials");
+      }
+    } catch (error) {
+      message.error("Invalid Credentials");
+    }
+  };
+  
   return (
     <div className="w-[100vw] h-[100vh] flex justify-center items-center bg-red-500">
       <div className="flex flex-col gap-4 justify-center items-center p-10 bg-white rounded-md">
@@ -24,12 +40,12 @@ const Login = () => {
           autoComplete="off"
         >
           <Form.Item
-            label="Username"
-            name="username"
+            label="Email"
+            name="email"
             rules={[
               {
                 required: true,
-                message: "Please input your username!",
+                message: "Please input your email!",
               },
             ]}
           >
