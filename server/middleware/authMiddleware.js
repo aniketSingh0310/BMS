@@ -8,7 +8,7 @@ const validateJwtToken=(req,res,next)=>{
         req.body.userId=decoded.userId
         next()    
     } catch (error) {
-        res.status(400).send({success:true, message:"Invalid JWT token"})
+        res.status(400).send({success:false, message:"Invalid JWT token"})
     }
 };
 

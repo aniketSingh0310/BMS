@@ -1,7 +1,7 @@
 import React from "react";
-import { Checkbox, Form, Input, message } from "antd";
+import { Form, Input, message } from "antd";
 import Button from "../../Components/Button";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RegisterUser } from "../../ApiCalls/user";
 
 const onFinishFailed = (errorInfo) => {
@@ -9,7 +9,7 @@ const onFinishFailed = (errorInfo) => {
 };
 
 const Register = () => {
-  const navigate = useNavigate();  // Initialize useNavigate
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const onFinish = async (values) => {
     try {
@@ -23,7 +23,7 @@ const Register = () => {
       message.error(error);
     }
   };
-  
+
   return (
     <div className="w-[100vw] h-[100vh] flex justify-center items-center bg-red-500">
       <div className="flex flex-col gap-4 justify-center items-center p-10 bg-white rounded-md">
@@ -73,25 +73,13 @@ const Register = () => {
           >
             <Input.Password />
           </Form.Item>
-
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
           <Form.Item
             wrapperCol={{
               offset: 8,
               span: 16,
             }}
           >
-            <Button title="Register" fullwidth  type="submit"/>
+            <Button title="Register" fullwidth type="submit" />
             {/* <Button type="primary" htmlType="submit" onClick={onFinish}>
         Submit
       </Button> */}
