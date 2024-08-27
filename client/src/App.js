@@ -5,6 +5,8 @@ import {  BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register/register";
 import ProtectedRoutes from "./Components/ProtectedRoutes";
 import { useSelector } from "react-redux";
+import Admin from "./pages/Admin/admin";
+import Profile from "./pages/Profile/profile";
 function App() {
   const {loading}= useSelector((state)=>state.loaders )
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/" element={<ProtectedRoutes><Home /></ProtectedRoutes> } />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/admin" element={<ProtectedRoutes> <Admin /></ProtectedRoutes>} />
+          <Route path="/profile" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
         </Routes>
       </BrowserRouter>
     </div>
