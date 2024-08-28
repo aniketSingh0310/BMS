@@ -9,3 +9,6 @@ movieRouter.delete('/deleteMovie',DeleteMovie)
 
 // Export the router
 module.exports = movieRouter;
+
+
+// http://localhost:8080/app/v1/users/admin/getAllMovie

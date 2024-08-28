@@ -1,4 +1,5 @@
 const express= require('express')
+const cors=require('cors')
 const app = express()
 const mongoose= require('mongoose')
 const dotenv = require('dotenv')
@@ -8,6 +9,11 @@ const movieRouter = require('./routes/movieRouter')
 
 dotenv.config()
 const PORT = process.env.PORT || 3000
+// Enable CORS for your frontend
+app.use(cors({
+    origin: 'http://localhost:3000',  // Allow requests from this origin
+    credentials: true                 // Allow credentials like cookies, authorization headers
+}));
 // Global Middleware
 app.use(express.json())
 // Auth
