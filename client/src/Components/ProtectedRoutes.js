@@ -3,8 +3,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { GetCurrentUser } from "../ApiCalls/user";
-import { SetUser } from "../redux/userSlice";
-import { HideLoading, ShowLoading } from "../redux/loaderSlice";
+import { SetUser } from "../redux/usersSlice";
+import { HideLoading, ShowLoading } from "../redux/loadersSlice";
 
 const ProtectedRoutes = ({ children }) => {
   const { user } = useSelector((state) => state.users);

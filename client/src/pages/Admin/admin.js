@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import PageTitle from "../../Components/PageTitle";
+import { Tabs } from "antd";
+import MoviesList from "./MovieList";
 
 const Admin = () => {
   return (
-    <div>Admin</div>
-  )
-}
+    <div>
+      <PageTitle title="Admin" />
+      <Tabs defaultActiveKey="1">
+        <Tabs.TabPane key="1" tab="Movies">
+          <MoviesList />
+        </Tabs.TabPane>
+        <Tabs.TabPane key="2" tab="Theatre">
+          <div>therterere</div>
+        </Tabs.TabPane>
+      </Tabs>
+    </div>
+  );
+};
 
-export default Admin
+export default Admin;

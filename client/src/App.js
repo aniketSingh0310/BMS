@@ -5,8 +5,8 @@ import {  BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./pages/Register/register";
 import ProtectedRoutes from "./Components/ProtectedRoutes";
 import { useSelector } from "react-redux";
-import Admin from "./pages/Admin/admin";
 import Profile from "./pages/Profile/profile";
+import Admin from "./pages/Admin/admin";
 function App() {
   const {loading}= useSelector((state)=>state.loaders )
   return (
