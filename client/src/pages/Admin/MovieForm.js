@@ -63,25 +63,25 @@ function MovieForm({
         <Row gutter={16}>
           <Col span={24}>
             <Form.Item label="Movie Name" name="title">
-              <input type="text" />
+              <input className="border border-gray-800/40 w-full rounded-md p-2" type="text" placeholder="Enter Movie Name" />
             </Form.Item>
           </Col>
 
-          <Col span={23}>
+          <Col span={24}>
             <Form.Item label="Movie Description" name="description">
-              <textarea type="text" />
+              <textarea className="border border-gray-800/40 w-full rounded-md p-2" type="text" placeholder="Enter Movie Description" />
             </Form.Item>
           </Col>
 
           <Col span={8}>
-            <Form.Item label="Movie Duration (Min)" name="duration">
-              <input type="number" />
+            <Form.Item label="Movie Duration (Min)" name="duration" >
+              <input  className="border border-gray-800/40 w-full rounded-md p-2" type="number" placeholder="Enter movie Duration"  />
             </Form.Item>
           </Col>
 
           <Col span={8}>
             <Form.Item label="Language" name="language">
-              <select name="" id="">
+              <select className="border border-gray-800/40 w-full rounded-md p-[10px]"  name="" id="">
                 <option value="">Select Language</option>
                 <option value="Telugu">Telugu</option>
                 <option value="English">English</option>
@@ -93,13 +93,13 @@ function MovieForm({
 
           <Col span={8}>
             <Form.Item label="Movie Release Date" name="releaseDate">
-              <input type="date" />
+              <input className="border border-gray-800/40 w-full rounded-md p-2" type="date" placeholder="Enter Release Date"  />
             </Form.Item>
           </Col>
 
           <Col span={8}>
             <Form.Item label="Genre" name="genre">
-              <select name="" id="">
+              <select className="border border-gray-800/40 w-full rounded-md p-2" name="" id="">
                 <option value="">Select Genre</option>
                 <option value="Action">Action</option>
                 <option value="Comedy">Comedy</option>
@@ -110,7 +110,7 @@ function MovieForm({
           </Col>
           <Col span={16}>
             <Form.Item label="Poster URL" name="poster">
-              <input type="text" />
+              <input className="border border-gray-800/40 w-full rounded-md p-2" type="text" placeholder="Enter poster URL"  />
             </Form.Item>
           </Col>
         </Row>

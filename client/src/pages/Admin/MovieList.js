@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
 import MovieForm from "./MovieForm";
 import Button from "../../Components/Button";
-import { Table, message } from "antd";
+import { Table, message ,Tag} from "antd";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { DeleteMovie, GetAllMovies } from "../../ApiCalls/Movies";
 
+const genreColors = {
+  Action: 'volcano',
+  Comedy: 'gold',
+  Drama: 'blue',
+  Romance: 'pink',
+  Thriller: 'purple',
+  Suspense: 'red'
+};
 const MoviesList = () => {
   const [showMovieFormModal, setShowMovieFormModal] = useState(false);
   const [movies, setMovies] = useState([]);
@@ -38,6 +46,7 @@ const MoviesList = () => {
         getData();
       } else {
         message.error(response.message);
+        
       }
       dispatch(HideLoading());
     } catch (error) {
@@ -75,12 +84,33 @@ const MoviesList = () => {
       dataIndex: "duration",
     },
     {
-      title: "Genre",
-      dataIndex: "genre",
+      title: 'Genre',
+      dataIndex: 'genre',
+      render: (_, { genre }) => (
+        <>
+          {genre.map((genre) => {
+            const color = genreColors[genre] || 'green'; // Fallback color if genre is not in the list
+            return (
+              <Tag color={color} key={genre}>
+                {genre.toUpperCase()}
+              </Tag>
+            );
+          })}
+        </>
+      ),
     },
     {
-      title: "Language",
-      dataIndex: "language",
+      title: 'Language',
+      dataIndex: 'language',
+      render: (_, { language }) => (
+        <>
+          {language.map((lang) => (
+            <Tag color="blue" key={lang}>
+              {lang.toUpperCase()}
+            </Tag>
+          ))}
+        </>
+      ),
     },
     {
       title: "Release Date",
@@ -117,10 +147,11 @@ const MoviesList = () => {
 
   useEffect(() => {
     getData();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
-      <div className="flex justify-end mb-1">
+      <div className="flex justify-end mb-1 py-6">
         <Button
           title="Add Movie"
           variant="outlined"

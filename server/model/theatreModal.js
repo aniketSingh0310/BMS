@@ -1,6 +1,6 @@
 const mongoose= require('mongoose')
 
-const userSchema= new mongoose.Schema({
+const theatreSchema= new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -10,16 +10,23 @@ const userSchema= new mongoose.Schema({
             required: true,
             unique: true
             },
-            password: {
+            number: {
                 type: String,
                 required: true
                 },
-             
-                isAdmin:{
+             address:{
+                type: String,
+                required: true
+                },
+                owner:{
+                    type:[mongoose.Schema.Types.ObjectId],
+                    ref: 'users'
+                },  
+                isActive:{
                     type: Boolean,
                     default: false
                 }
                     
 })
 
-module.exports=mongoose.model("users",userSchema)
+module.exports=mongoose.model("theatres",theatreSchema)

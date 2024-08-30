@@ -51,21 +51,19 @@ const GetAllMovies= async(req,res)=>{
         }
         }
 
-        const DeleteMovie= async(req,res)=>{
-            try {
-                await movieModal.findByIdAndDelete(req.body._id)
-                
-                res.send({
-                    success:true,
-                    message:"Movie Deleted Successfully",
-                    data:movie
-                })
-            } catch (error) {
-                res.send({
+        
+            const DeleteMovie = async (req, res) => {
+                try {
+                  await movieModal.findByIdAndDelete(req.body._id);
+                  res.send({
+                    success: true,
+                    message: "Movie Deleted SuccessFully",
+                  });
+                } catch (err) {
+                  res.send({
                     success: false,
-                    message: error.message
-                    
-                })
-            }
-            }
+                    message: err.message,
+                  });
+                }
+              };
 module.exports={AddMovie,GetAllMovies,UpdateMovie,DeleteMovie}

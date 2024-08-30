@@ -1,7 +1,7 @@
 import React from "react";
 
 const Button = ({ title, variant, disabled, onClick, fullwidth, type }) => {
-  let className = "bg-red-500 px-4 py-1 text-white";
+  let className = "bg-red-500 rounded-md px-4 py-1 text-white";
   if (fullwidth) {
     className += " w-full";
   }

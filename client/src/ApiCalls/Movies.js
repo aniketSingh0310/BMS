@@ -26,7 +26,7 @@ export const AddMovie = async (payload) => {
 export const DeleteMovie = async (movieId) => {
   try {
     const response = await axiosInstance.post(
-      "/app/v1/users/admin/deleteMovie",
+      "/users/admin/deleteMovie",
       { _id: movieId }
     );
     return response.data;
@@ -37,8 +37,8 @@ export const DeleteMovie = async (movieId) => {
 
 export const UpdateMovie = async (payload) => {
   try {
-    const response = await axiosInstance.post(
-      "/app/v1/users/admin/updateMovie",
+    const response = await axiosInstance.patch(
+      "/users/admin/updateMovie",
       payload
     );
     return response.data;

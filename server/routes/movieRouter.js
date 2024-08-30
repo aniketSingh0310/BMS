@@ -1,14 +1,16 @@
+
 const express = require('express');
 const { AddMovie, GetAllMovies, UpdateMovie, DeleteMovie} = require('../controller/moviesController');
+const { validateJwtToken } = require('../middleware/authMiddleware');
+
 const movieRouter = express.Router(); 
 
-movieRouter.post('/addMovie', AddMovie);
-movieRouter.get('/getAllMovie', GetAllMovies);
-movieRouter.patch('/updateMovie',UpdateMovie);
-movieRouter.delete('/deleteMovie',DeleteMovie)
+movieRouter.post('/addMovie',validateJwtToken, AddMovie);
+movieRouter.get('/getAllMovie',validateJwtToken, GetAllMovies);
+movieRouter.patch('/updateMovie',validateJwtToken,UpdateMovie);
+movieRouter.post('/deleteMovie',validateJwtToken,DeleteMovie)
 
 // Export the router
 module.exports = movieRouter;
 
 
-// http://localhost:8080/app/v1/users/admin/getAllMovie
