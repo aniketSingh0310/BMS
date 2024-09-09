@@ -64,7 +64,7 @@ function TheatreForm({
           name="name"
           rules={[{ required: true, message: "Please input theatre name!" }]}
         >
-          <input type="text" />
+          <input className="border border-gray-800/40 w-full rounded-md p-2" type="text" />
         </Form.Item>
 
         <Form.Item
@@ -72,17 +72,17 @@ function TheatreForm({
           name="address"
           rules={[{ required: true, message: "Please input theatre address!" }]}
         >
-          <textarea type="text" />
+          <textarea className="border border-gray-800/40 w-full rounded-md p-2" type="text" />
         </Form.Item>
 
         <Form.Item
           label="Phone Number"
-          name="phone"
+          name="number"
           rules={[
             { required: true, message: "Please input theatre phone number!" },
           ]}
         >
-          <input type="text" />
+          <input className="border border-gray-800/40 w-full rounded-md p-2" type="text" />
         </Form.Item>
 
         <Form.Item
@@ -90,7 +90,7 @@ function TheatreForm({
           name="email"
           rules={[{ required: true, message: "Please input theatre email!" }]}
         >
-          <input type="text" />
+          <input className="border border-gray-800/40 w-full rounded-md p-2" type="text" />
         </Form.Item>
         <div className="flex justify-end gap-1">
           <Button

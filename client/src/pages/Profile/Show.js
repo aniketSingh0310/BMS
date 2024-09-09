@@ -181,7 +181,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 name="name"
                 rules={[{ required: true, message: "Please input show name!" }]}
               >
-                <input />
+                <input className="w-full border border-black/30 rounded-md p-2" />
               </Form.Item>
             </Col>
             <Col span={8}>
@@ -190,7 +190,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 name="date"
                 rules={[{ required: true, message: "Please input show date!" }]}
               >
-                <input type="date" min={new Date()} />
+                <input className="w-full border border-black/30 rounded-md p-2"  type="date" min={new Date()} />
               </Form.Item>
             </Col>
 
@@ -200,7 +200,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 name="time"
                 rules={[{ required: true, message: "Please input show time!" }]}
               >
-                <input type="time" />
+                <input className="w-full border border-black/30 rounded-md p-2"  type="time" />
               </Form.Item>
             </Col>
 
@@ -210,7 +210,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                 name="movie"
                 rules={[{ required: true, message: "Please select movie!" }]}
               >
-                <select>
+                <select className="w-full border border-black/30 rounded-md p-2" >
                   <option value="">Select Movie</option>
                   {movies.map((movie) => (
                     <option value={movie._id}>{movie.title}</option>
@@ -227,7 +227,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                   { required: true, message: "Please input ticket price!" },
                 ]}
               >
-                <input type="number" />
+                <input className="w-full border border-black/30 rounded-md p-2"  type="number" />
               </Form.Item>
             </Col>
 
@@ -239,7 +239,7 @@ function Shows({ openShowsModal, setOpenShowsModal, theatre }) {
                   { required: true, message: "Please input total seats!" },
                 ]}
               >
-                <input type="number" />
+                <input className="w-full border border-black/30 rounded-md p-2"  type="number" />
               </Form.Item>
             </Col>
           </Row>

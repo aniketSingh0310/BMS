@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { HideLoading, ShowLoading } from "../../redux/loadersSlice";
 import { message, Table } from "antd";
@@ -18,7 +17,6 @@ function TheatresList() {
   const [openShowsModal, setOpenShowsModal] = useState(false);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const getData = async () => {
     try {
@@ -66,7 +64,7 @@ function TheatresList() {
     },
     {
       title: "Phone",
-      dataIndex: "phone",
+      dataIndex: "number",
     },
     {
       title: "Email",
